@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<lost_found_web.Services.ILostFoundService, lost_found_web.Services.LostFoundService>();
 
 var app = builder.Build();
 
