@@ -1,0 +1,85 @@
+@page "{id:int}"
+@model lost_found_web.Pages.LostItems.EditModel
+@{
+    ViewData["Title"] = "Edit Lost Item";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-edit"></i> Edit Lost Item</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        
+                        <input asp-for="LostItem.Id" type="hidden" />
+                        <input asp-for="LostItem.CreatedAt" type="hidden" />
+                        
+                        <div class="mb-3">
+                            <label asp-for="LostItem.ItemName" class="form-label">Item Name *</label>
+                            <input asp-for="LostItem.ItemName" class="form-control" placeholder="e.g., iPhone, Wallet, Keys" />
+                            <span asp-validation-for="LostItem.ItemName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LostItem.Description" class="form-label">Description *</label>
+                            <textarea asp-for="LostItem.Description" class="form-control" rows="3" 
+                                placeholder="Describe the item in detail (color, brand, distinctive features)"></textarea>
+                            <span asp-validation-for="LostItem.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LostItem.LostLocation" class="form-label">Lost Location *</label>
+                            <input asp-for="LostItem.LostLocation" class="form-control" 
+                                placeholder="e.g., University Library, Cafeteria, Parking Lot" />
+                            <span asp-validation-for="LostItem.LostLocation" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LostItem.LostDate" class="form-label">Lost Date *</label>
+                            <input asp-for="LostItem.LostDate" type="date" class="form-control" />
+                            <span asp-validation-for="LostItem.LostDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LostItem.ContactInfo" class="form-label">Contact Information *</label>
+                            <input asp-for="LostItem.ContactInfo" class="form-control" 
+                                placeholder="Your email or phone number" />
+                            <span asp-validation-for="LostItem.ContactInfo" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LostItem.ImageUrl" class="form-label">Image URL (Optional)</label>
+                            <input asp-for="LostItem.ImageUrl" class="form-control" 
+                                placeholder="URL to an image of the item" />
+                            <span asp-validation-for="LostItem.ImageUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="LostItem.IsFound" class="form-check-input" type="checkbox" />
+                                <label asp-for="LostItem.IsFound" class="form-check-label">
+                                    Mark as Found
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-page="Index" class="btn btn-secondary me-md-2">Cancel</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Update Lost Item
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

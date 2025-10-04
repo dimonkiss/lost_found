@@ -1,10 +1,141 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-5">
+                <h1 class="display-4 text-primary">
+                    <i class="fas fa-search"></i> University Lost & Found
+                </h1>
+                <p class="lead">Find your lost items or help others find theirs</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Lost Something?</h4>
+                            <p class="card-text">Report your lost item and increase your chances of finding it.</p>
+                            <a asp-page="/LostItems/Create" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Report Lost Item
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-hand-holding fa-3x text-success mb-3"></i>
+                            <h4 class="card-title">Found Something?</h4>
+                            <p class="card-text">Help reunite lost items with their owners by reporting found items.</p>
+                            <a asp-page="/FoundItems/Create" class="btn btn-success">
+                                <i class="fas fa-plus"></i> Report Found Item
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-search fa-3x text-info mb-3"></i>
+                            <h4 class="card-title">Search Items</h4>
+                            <p class="card-text">Search through all lost and found items to find what you're looking for.</p>
+                            <a asp-page="/Search/Index" class="btn btn-info">
+                                <i class="fas fa-search"></i> Search Items
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-search"></i> Recent Lost Items</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.RecentLostItems.Any())
+                            {
+                                @foreach (var item in Model.RecentLostItems.Take(3))
+                                {
+                                    <div class="border-bottom pb-2 mb-2">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-primary">@item.ItemName</h6>
+                                                <p class="mb-1"><strong>Location:</strong> @item.LostLocation</p>
+                                                <small class="text-muted">Lost on @item.LostDate.ToString("MMM dd, yyyy")</small>
+                                            </div>
+                                            <div class="btn-group-vertical ms-2" role="group">
+                                                <a asp-page="/LostItems/Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a asp-page="/LostItems/Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="text-center mt-3">
+                                    <a asp-page="/LostItems/Index" class="btn btn-outline-primary btn-sm">View All Lost Items</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted">No recent lost items.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-hand-holding"></i> Recent Found Items</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.RecentFoundItems.Any())
+                            {
+                                @foreach (var item in Model.RecentFoundItems.Take(3))
+                                {
+                                    <div class="border-bottom pb-2 mb-2">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-success">@item.ItemName</h6>
+                                                <p class="mb-1"><strong>Location:</strong> @item.FoundLocation</p>
+                                                <small class="text-muted">Found on @item.FoundDate.ToString("MMM dd, yyyy")</small>
+                                            </div>
+                                            <div class="btn-group-vertical ms-2" role="group">
+                                                <a asp-page="/FoundItems/Edit" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a asp-page="/FoundItems/Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="text-center mt-3">
+                                    <a asp-page="/FoundItems/Index" class="btn btn-outline-success btn-sm">View All Found Items</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted">No recent found items.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
