@@ -67,9 +67,21 @@
                                 @foreach (var item in Model.RecentLostItems.Take(3))
                                 {
                                     <div class="border-bottom pb-2 mb-2">
-                                        <h6 class="text-primary">@item.ItemName</h6>
-                                        <p class="mb-1"><strong>Location:</strong> @item.LostLocation</p>
-                                        <small class="text-muted">Lost on @item.LostDate.ToString("MMM dd, yyyy")</small>
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-primary">@item.ItemName</h6>
+                                                <p class="mb-1"><strong>Location:</strong> @item.LostLocation</p>
+                                                <small class="text-muted">Lost on @item.LostDate.ToString("MMM dd, yyyy")</small>
+                                            </div>
+                                            <div class="btn-group-vertical ms-2" role="group">
+                                                <a asp-page="/LostItems/Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a asp-page="/LostItems/Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 }
                                 <div class="text-center mt-3">
@@ -95,9 +107,21 @@
                                 @foreach (var item in Model.RecentFoundItems.Take(3))
                                 {
                                     <div class="border-bottom pb-2 mb-2">
-                                        <h6 class="text-success">@item.ItemName</h6>
-                                        <p class="mb-1"><strong>Location:</strong> @item.FoundLocation</p>
-                                        <small class="text-muted">Found on @item.FoundDate.ToString("MMM dd, yyyy")</small>
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-success">@item.ItemName</h6>
+                                                <p class="mb-1"><strong>Location:</strong> @item.FoundLocation</p>
+                                                <small class="text-muted">Found on @item.FoundDate.ToString("MMM dd, yyyy")</small>
+                                            </div>
+                                            <div class="btn-group-vertical ms-2" role="group">
+                                                <a asp-page="/FoundItems/Edit" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a asp-page="/FoundItems/Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 }
                                 <div class="text-center mt-3">
