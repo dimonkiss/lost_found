@@ -1,0 +1,25 @@
+{
+  "ApiKey": "NUGET-SERVER-API-KEY",
+  "PackageDeletionBehavior": "Unlist",
+  "AllowPackageOverwrites": false,
+  "Database": {
+    "Type": "Sqlite",
+    "ConnectionString": "Data Source=baget.db"
+  },
+  "Storage": {
+    "Type": "FileSystem",
+    "Path": "/var/baget/packages"
+  },
+  "Search": {
+    "Type": "Database"
+  },
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}

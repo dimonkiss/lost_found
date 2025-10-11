@@ -185,6 +185,54 @@ The application is built following these principles:
 - Advanced search with filters
 - Statistics and analytics
 
+## Deployment
+
+This project supports deployment across multiple operating systems using Vagrant and can be packaged as a NuGet package for distribution through a private BaGet repository.
+
+### Quick Deployment
+
+```powershell
+# Deploy to all operating systems
+.\quick-deploy.ps1
+
+# Deploy to specific OS
+.\quick-deploy.ps1 -Target windows
+.\quick-deploy.ps1 -Target linux
+.\quick-deploy.ps1 -Target macos
+
+# Build and deploy package
+.\quick-deploy.ps1 -Build -Deploy
+```
+
+### Manual Deployment
+
+1. **Build NuGet Package**:
+   ```powershell
+   .\scripts\build-and-package.ps1
+   ```
+
+2. **Deploy to BaGet**:
+   ```powershell
+   .\scripts\deploy-to-baget.ps1
+   ```
+
+3. **Deploy with Vagrant**:
+   ```bash
+   vagrant up windows    # Windows deployment
+   vagrant up linux      # Linux deployment
+   vagrant up macos      # macOS deployment
+   ```
+
+### Access Points
+
+After deployment, the application will be available at:
+
+- **Windows**: http://192.168.56.10:5000
+- **Linux**: http://192.168.56.11:5001
+- **macOS**: http://192.168.56.12:5003
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## License
 
 This project is developed for educational purposes of the university platform.
