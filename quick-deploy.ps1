@@ -51,7 +51,7 @@ Write-Host "Deployment completed!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Access your applications at:" -ForegroundColor Cyan
 Write-Host "Windows:  http://192.168.56.10:5000" -ForegroundColor White
-Write-Host "Linux:    http://192.168.56.11:5001" -ForegroundColor White
+Write-Host "Linux:    http://192.168.56.11:8080" -ForegroundColor White
 Write-Host "macOS:    http://192.168.56.12:5003" -ForegroundColor White
 Write-Host ""
 Write-Host "BaGet repositories:" -ForegroundColor Cyan

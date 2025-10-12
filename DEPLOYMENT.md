@@ -74,7 +74,7 @@ The Vagrantfile supports deployment on three operating systems:
 
 2. **Ubuntu 22.04 LTS** (`vagrant up linux`)
    - IP: 192.168.56.11
-   - Ports: 5001 (HTTP), 5002 (HTTPS), 5556 (BaGet)
+   - Ports: 8080 (HTTP), 8081 (HTTPS), 5556 (BaGet)
 
 3. **macOS Ventura** (`vagrant up macos`)
    - IP: 192.168.56.12
@@ -130,8 +130,8 @@ After successful deployment, the application will be accessible at:
 - **BaGet**: http://192.168.56.10:5555
 
 ### Linux Deployment
-- **HTTP**: http://192.168.56.11:5001
-- **HTTPS**: https://192.168.56.11:5002
+- **HTTP**: http://192.168.56.11:8080
+- **HTTPS**: https://192.168.56.11:8081
 - **BaGet**: http://192.168.56.11:5556
 
 ### macOS Deployment

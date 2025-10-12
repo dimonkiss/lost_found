@@ -1,38 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        
-        <!-- NuGet Package Configuration -->
-        <PackageId>LostFoundWeb</PackageId>
-        <Version>1.0.0</Version>
-        <Authors>University Platform Team</Authors>
-        <Company>University Platform</Company>
-        <Product>Lost & Found Web Platform</Product>
-        <Description>A web application for university "Lost & Found" platform that allows students and university staff to report lost and found items, as well as search for them.</Description>
-        <Copyright>Copyright © 2024 University Platform</Copyright>
-        <PackageTags>lost-found;university;web;aspnetcore;razor</PackageTags>
-        <PackageProjectUrl>https://github.com/university-platform/lost-found</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/university-platform/lost-found</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageIcon>icon.png</PackageIcon>
-        
-        <!-- Build Configuration -->
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <PublishSingleFile>true</PublishSingleFile>
-        <SelfContained>true</SelfContained>
-        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 
-    <ItemGroup>
-        <None Include="README.md" Pack="true" PackagePath="\" />
-        <None Include="wwwroot\**\*" Pack="true" PackagePath="wwwroot\" />
-    </ItemGroup>
+		<PackageId>LostFoundWeb</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>University Platform Team</Authors>
+		<Company>University Platform</Company>
+		<Product>Lost &amp; Found Web Platform</Product>
+		<Description>A web application for university "Lost &amp; Found" platform that allows students and university staff to report lost and found items, as well as search for them.</Description>
+		<Copyright>Copyright © 2024 University Platform</Copyright>
+		<PackageTags>lost-found;university;web;aspnetcore;razor</PackageTags>
+		<PackageProjectUrl>https://github.com/university-platform/lost-found</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/university-platform/lost-found</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+		<None Include="wwwroot\**\*" Pack="true" PackagePath="wwwroot\" />
+	</ItemGroup>
 
 </Project>
