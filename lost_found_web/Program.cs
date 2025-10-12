@@ -20,7 +20,8 @@ public class Program
             app.UseHsts();
         }
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection(); // <--- Ô²ÍÀËÜÍÅ ÂÈÏÐÀÂËÅÍÍß ¹1: ÂÈÌÊÍÅÍÎ!
+
         app.UseStaticFiles();
 
         app.UseRouting();
