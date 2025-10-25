@@ -1,0 +1,27 @@
+﻿@model IEnumerable<System.Security.Claims.Claim>
+
+@{
+    ViewData["Title"] = "Профіль користувача";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Тут відображається інформація, яку ми отримали від Google.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Тип</th>
+            <th>Значення</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Type</td>
+                <td>@claim.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
