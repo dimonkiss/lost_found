@@ -1,0 +1,60 @@
+﻿@model Lab3_WebApp.ViewModels.SearchViewModel
+@{
+    ViewData["Title"] = "Пошук оголошень";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="SearchItems" method="get" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Введіть ключові слова..." value="@Model.SearchTerm">
+        <button class="btn btn-primary" type="submit">Шукати</button>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Знайдені речі</h2>
+        @if (Model.FoundItems.Any())
+        {
+            @foreach (var item in Model.FoundItems)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">@item.Title</div>
+                    <div class="card-body">
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Знайшов: @item.ApplicationUser?.FullName | @item.Date.ToShortDateString()
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Немає знайдених речей, що відповідають запиту.</p>
+        }
+    </div>
+    <div class="col-md-6">
+        <h2>Загублені речі</h2>
+        @if (Model.LostItems.Any())
+        {
+            @foreach (var item in Model.LostItems)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">@item.Title</div>
+                    <div class="card-body">
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Втратив: @item.ApplicationUser?.FullName | @item.Date.ToShortDateString()
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Немає загублених речей, що відповідають запиту.</p>
+        }
+    </div>
+</div>
